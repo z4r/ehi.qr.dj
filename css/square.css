@@ -1,0 +1,57 @@
+#qrcode {
+    margin-left: 5%;
+    margin-top: 5%;
+    border-spacing: 1px;
+    position: relative;
+}
+.row {
+	display: table-row;
+}
+.square {
+    width: 10px;
+    height: 10px;
+    display: table-cell;
+}
+.square.on {
+}
+.square.off {
+    border-radius: 30%;    
+}
+.square.off.blue{
+    background-color: #aff;
+    box-shadow: inset #006 0 -1px 9px, #06F 0 2px 14px;
+}
+.square.off.green{
+    background-color: #ac3;
+    box-shadow: inset #460 0 -1px 9px, #790 0 2px 14px;
+}
+.square.off.orange{
+    background-color: #f83;
+    box-shadow: inset #b00 0 -1px 9px, #e30 0 2px 14px;
+}
+.square.off.yellow{
+    background-color: #eb1;
+    box-shadow: inset #b00 0 -1px 9px, #e30 0 2px 14px;
+}
+#icon{
+    position: absolute;
+    width: 400px;
+    height: 400px;
+    top: -7%;
+    left: -2%;
+}
+.icon.spotify{
+    background: transparent url(../images/spotify.png) center center no-repeat;
+}
+.icon.mxm{
+    background: transparent url(../images/mxm.png) center center no-repeat;
+}
+.icon.soundcloud{
+    background: transparent url(../images/soundcloud.png) center center no-repeat;
+}
+.icon.stereomood{
+    background: transparent url(../images/stereomood.png) center center no-repeat;
+}
+.icon.twitter{
+    background: transparent url(../images/twitter.png) center center no-repeat;
+}

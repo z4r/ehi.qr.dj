@@ -1,0 +1,60 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en"><head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ehi.qr.dj</title>
+	<link rel="stylesheet" media="screen" type="text/css" href="css/a.css">
+			<link rel="stylesheet" href="css/square.css">
+
+		<script src="http://code.jquery.com/jquery-latest.min.js" type="text/javascript"></script>
+		<script src="js/keymaster.min.js"></script>
+
+		<script type="text/javascript">
+callit = function(url, color, service) {
+	$('#qrcode').html('');
+	$('#qrcode').hide();
+	$.ajax({
+			url: url,
+			success: function( data ) {
+				$('#qrcode').append('<div id="icon" class="icon '+ service +'"></div>')
+				$.each( data, function(index, value){
+				var rid = 'row_' + index;
+				$('#qrcode').append('<div class="row" id="' + rid + '">');
+					$.each(value, function(index, value){
+						var enable = value ? 'on': 'off'; 
+						$('#' + rid).append('<div class="square '+ enable + ' ' + color +'"></div>');
+					});
+				});
+				$('#qrcode').fadeIn(1000);
+			}
+		});
+}
+$( document ).ready(function() {
+	key('q', function(){callit("api/spotify.json", 'green', 'spotify');});
+	key('w', function(){callit("api/mxm.json", 'orange', 'mxm');});
+	key('e', function(){callit("api/soundcloud.json", 'orange', 'soundcloud');});
+	key('r', function(){callit("api/stereomood.json", 'yellow', 'stereomood');});
+	key('a', function(){callit("api/twitter.json", 'blue', 'twitter');});
+});
+		</script>
+</head>
+<body>
+	<div id="menu">
+		<h1><a href="https://www.hackerleague.org/hackathons/musichackday-bologna/hacks/ehi-dot-qr-dot-dj">EHI<b>QR</b>DJ@MHDBO13</a></h1>
+		<div>
+			<ul>
+				<li><a href="#problem">DANGERZONE</a></li>
+				<li><a href="#idea">BRAINSTORM</a></li>
+				<li><a href="#project">HACKING</a></li>
+				<li><a href="#maker">CRAFTSMAN</a></li>
+			</ul>
+		</div>
+	</div>
+	<div id="cont">
+		<div class="box large">
+			<img src="images/gracenote.png">
+			<h2>ehi.<b>qr</b>.dj</h2>
+			z4r @ music hack day bologna 5/6 oct XIII
+		</div>
+	</div>
+	<div id="qrcode">
+	</div>
+</body></html>
